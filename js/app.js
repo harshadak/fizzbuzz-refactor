@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	var num = prompt('Please enter a number:');
+	num = parseInt(num, 10);
 	if (num != null) {
 		fizzBuzz(num);
 	}
