@@ -1,21 +1,33 @@
 $(document).ready(function() {
 	var num = prompt('Please enter a number:');
-	num = parseInt(num, 10);
+	//num = parseInt(num, 10);
 	if (num != null) {
 		fizzBuzz(num);
 	}
 	
 	$('#calculate').on('click', function() {
 		var num = $('#inputValue').val();
-		num = parseInt(num, 10);
+		//num = parseInt(num, 10);
 
-		if (num % 1 !== 0) {
-			alert('No decimal values please!!'); // Not working!!
-		} else if (num % 1 === 0 &&  num >= 1) {
-			fizzBuzz(num);
-		} else {
+		if (isNaN(num))
+		{
 			alert('You must enter an integer value!!');
 			$('#inputValue').val('');
+		}
+
+		else if (num % 1 !== 0) {
+			alert('No decimal values please!!'); // Not working!!
+			$('#inputValue').val('');
+			$('#list').empty();
+		}	
+		
+
+		else if (num < 1) {
+			alert('The number should be greater than one!');
+			$('#inputValue').val('');
+		} 
+		else {
+			fizzBuzz(num);
 		}
 	});
 
